@@ -54,7 +54,7 @@ def render_prediction(model_bundle: ModelBundle) -> None:
             label = LABEL_DISPLAY.get(pred, pred)
 
             # Deteksi Sarkasme
-            sarcasm_info = detect_sarcasm(user_text.strip())
+            sarcasm_info = detect_sarcasm(user_text.strip(), cleaned, pred)
             sarcasm_reason = ""
             if sarcasm_info["is_sarcasm"]:
                 badge_class = "badge-sarkasme"

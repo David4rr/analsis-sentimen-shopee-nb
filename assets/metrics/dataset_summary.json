@@ -1,5 +1,5 @@
 {
-  "source": "/Users/mac/Work/2026-05-28_analisis-sentimen-naive-bayes/projects/naive_bayes_fined/scrapped_Shopee 12.12_ID_.csv",
+  "source": "scrapped_Shopee 12.12_ID_.csv",
   "total_raw": 85500,
   "total_clean": 85289,
   "removed_invalid": 211,
