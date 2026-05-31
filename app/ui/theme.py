@@ -117,6 +117,7 @@ def apply_theme() -> None:
             .badge-positif { background: rgba(34, 197, 94, 0.2); color: var(--positive); }
             .badge-negatif { background: rgba(239, 68, 68, 0.2); color: var(--negative); }
             .badge-netral { background: rgba(245, 158, 11, 0.2); color: var(--neutral); }
+            .badge-sarkasme { background: rgba(168, 85, 247, 0.2); color: #a855f7; }
 
             .prob-row {
                 display: grid;
@@ -125,10 +126,16 @@ def apply_theme() -> None:
                 align-items: center;
                 margin-bottom: 10px;
             }
+            .prob-row p {
+                margin: 0 !important;
+                padding: 0 !important;
+                line-height: 1 !important;
+            }
             .prob-label {
                 font-size: 0.75rem;
                 color: var(--muted);
                 text-transform: capitalize;
+                line-height: 1;
             }
             .prob-bar-track {
                 height: 8px;
@@ -148,6 +155,7 @@ def apply_theme() -> None:
                 font-size: 0.75rem;
                 color: var(--muted);
                 font-variant-numeric: tabular-nums;
+                line-height: 1;
             }
 
             .stTextArea textarea {

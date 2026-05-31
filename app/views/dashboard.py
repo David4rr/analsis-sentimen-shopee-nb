@@ -131,17 +131,17 @@ def render_dashboard(bundle: MetricsBundle, model_bundle: ModelBundle) -> None:
         {
             "label": "Model",
             "value": "NB + Lexicon",
-            "sub": "Pipeline notebook",
+            "sub": "Pipeline",
         },
     ]
     render_kpi_cards(kpis)
 
     col_left, col_right = st.columns([1.2, 1])
     with col_left:
-        st.markdown("<div class='section-title'>Distribusi Sentimen</div>", unsafe_allow_html=True)
+        st.markdown("<div class='section-title' style='margin-top: 16px;'>Distribusi Sentimen</div>", unsafe_allow_html=True)
         _render_dataset_chart(dataset_summary)
     with col_right:
-        st.markdown("<div class='section-title'>Info Model</div>", unsafe_allow_html=True)
+        st.markdown("<div class='section-title' style='margin-top: 16px;'>Info Model</div>", unsafe_allow_html=True)
         params = metrics.get("best_params", {}) if metrics else {}
         preprocess_note = metrics.get("preprocess_note", "-")
         st.markdown(
@@ -151,7 +151,6 @@ def render_dashboard(bundle: MetricsBundle, model_bundle: ModelBundle) -> None:
                 <div><b>Fit Prior:</b> {params.get("fit_prior", "-")}</div>
                 <div><b>Lexicon Weight:</b> {params.get("lex_weight", "-")}</div>
                 <div style="margin-top: 10px;"><b>Preprocess:</b> {preprocess_note}</div>
-                <div style="margin-top: 10px;" class="muted">Model pipeline tetap sesuai notebook.</div>
             </div>
             """),
             unsafe_allow_html=True,

@@ -105,10 +105,10 @@ def render_performance(bundle: MetricsBundle) -> None:
 
     col_left, col_right = st.columns([1, 1])
     with col_left:
-        st.markdown("<div class='section-title'>Confusion Matrix</div>", unsafe_allow_html=True)
+        st.markdown("<div class='section-title' style='margin-top: 16px;'>Confusion Matrix</div>", unsafe_allow_html=True)
         _render_confusion_matrix(bundle.confusion_matrix)
     with col_right:
-        st.markdown("<div class='section-title'>Classification Report</div>", unsafe_allow_html=True)
+        st.markdown("<div class='section-title' style='margin-top: 16px;'>Classification Report</div>", unsafe_allow_html=True)
         class_metrics = metrics.get("class_metrics") or []
         if class_metrics:
             df = pd.DataFrame(class_metrics)
