@@ -1,0 +1,14 @@
+{
+  "source": "/Users/mac/Work/2026-05-28_analisis-sentimen-naive-bayes/projects/naive_bayes_fined/scrapped_Shopee 12.12_ID_.csv",
+  "total_raw": 85500,
+  "total_clean": 85289,
+  "removed_invalid": 211,
+  "label_distribution": {
+    "positif": 39924,
+    "netral": 8538,
+    "negatif": 36827
+  },
+  "train_size": 57952,
+  "test_size": 14489,
+  "labeling_rule": "1-2 negatif, 3 netral, 4-5 positif"
+}

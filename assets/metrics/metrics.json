@@ -1,0 +1,55 @@
+{
+  "accuracy": 0.8206225412381807,
+  "macro_f1": 0.687310509607587,
+  "macro_precision": 0.6861408052247279,
+  "macro_recall": 0.6984623918203458,
+  "labels": [
+    "negatif",
+    "netral",
+    "positif"
+  ],
+  "best_params": {
+    "alpha": 0.1,
+    "fit_prior": false,
+    "lex_weight": 1.0,
+    "ros_ratio": null
+  },
+  "preprocess_note": "tanpa stemming; slang normalization + negation scope",
+  "class_metrics": [
+    {
+      "Kelas": "negatif",
+      "Precision": 0.8413,
+      "Recall": 0.892,
+      "F1-Score": 0.8659,
+      "Support": 6268
+    },
+    {
+      "Kelas": "netral",
+      "Precision": 0.2563,
+      "Recall": 0.3673,
+      "F1-Score": 0.3019,
+      "Support": 1225
+    },
+    {
+      "Kelas": "positif",
+      "Precision": 0.9609,
+      "Recall": 0.836,
+      "F1-Score": 0.8941,
+      "Support": 6996
+    },
+    {
+      "Kelas": "Macro Avg",
+      "Precision": 0.6861,
+      "Recall": 0.6985,
+      "F1-Score": 0.6873,
+      "Support": 14489
+    },
+    {
+      "Kelas": "Weighted Avg",
+      "Precision": 0.8496,
+      "Recall": 0.8206,
+      "F1-Score": 0.8318,
+      "Support": 14489
+    }
+  ]
+}

@@ -20,10 +20,10 @@ Aplikasi web untuk menganalisis sentimen teks ulasan berbahasa Indonesia menggun
 
 ## Fitur Utama
 
-- **Analisis Tunggal** -- Analisis sentimen untuk satu ulasan dengan visualisasi probabilitas per kelas dan detail preprocessing
-- **Analisis Batch** -- Proses hingga 50 ulasan sekaligus dengan ringkasan distribusi sentimen dan tabel hasil
-- **Informasi Model** -- Dashboard lengkap tentang metodologi, performa per kelas, dan detail dataset
-- **Desain Responsif** -- Tampilan modern, bersih, dan profesional yang adaptif di berbagai ukuran layar
+- **Dashboard** -- Ringkasan performa model, KPI utama, dan distribusi label dataset
+- **Live Prediction** -- Prediksi sentimen satu ulasan dalam satu panel ringkas
+- **Model Performance** -- Confusion matrix, classification report, dan ringkasan metrik
+- **About System** -- Arsitektur, metodologi, dan spesifikasi pipeline
 
 ---
 
@@ -65,11 +65,16 @@ Model menggunakan pipeline sklearn yang terdiri dari:
 ```
 web/
 |-- model.pkl                              # Model terlatih (pipeline + metadata)
+|-- assets/
+|   |-- metrics/                           # metrics.json, epoch_history.csv, confusion_matrix.csv, dataset_summary.json
 |-- requirements.txt                       # Dependensi Python
 |-- README.md                              # Dokumentasi ini
 |-- naive_bayes_lexicon_improved.ipynb      # Notebook training model
 |-- app/
-|   |-- main.py                            # Aplikasi Streamlit utama
+|   |-- main.py                            # Entry point Streamlit
+|   |-- data/                              # Loader model, metrics, preprocess
+|   |-- pages/                             # Dashboard, Prediction, Performance, About
+|   |-- ui/                                # Theme & UI components
 ```
 
 ---
@@ -130,6 +135,30 @@ GDRIVE_MODEL_ID = "FILE_ID"
 ```
 
 Aplikasi akan terbuka di browser pada `http://localhost:8501`.
+
+## Metrics Assets & Google Drive
+
+Aplikasi membaca file berikut dari `assets/metrics/`:
+
+- `metrics.json`
+- `epoch_history.csv`
+- `confusion_matrix.csv`
+- `dataset_summary.json`
+
+Jika file tidak ada, aplikasi akan mencoba mengunduh otomatis dari Google Drive. Pilih salah satu opsi env berikut:
+
+```bash
+# Opsi 1: satu folder berisi semua file metrics
+export GDRIVE_METRICS_FOLDER_URL="https://drive.google.com/drive/folders/FOLDER_ID"
+
+# Opsi 2: file ID per asset
+export GDRIVE_METRICS_JSON_ID="FILE_ID"
+export GDRIVE_EPOCH_HISTORY_ID="FILE_ID"
+export GDRIVE_CONFUSION_MATRIX_ID="FILE_ID"
+export GDRIVE_DATASET_SUMMARY_ID="FILE_ID"
+```
+
+Notebook `naive_bayes_lexicon_improved.ipynb` mengekspor file metrics ke folder ini.
 
 ### Opsi Tambahan
 
