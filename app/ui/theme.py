@@ -217,23 +217,47 @@ def apply_theme() -> None:
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
         }
         
-        [data-testid="stFormSubmitButton"] button {
-            width: 100% !important;
-        }
-
         /* Button Dark with Lime Accent */
+        [data-testid="stFormSubmitButton"] button,
+        [data-testid="baseButton-secondary"],
         .stButton > button {
             background: #0f172a !important;
-            color: var(--accent-lime) !important;
-            border: none !important;
+            background-color: #0f172a !important;
+            color: #d9f99d !important;
+            border: 1px solid #0f172a !important;
             border-radius: 12px !important;
             padding: 10px 22px !important;
-            font-weight: 600 !important;
+            font-weight: 700 !important;
+            width: 100% !important;
+            display: block !important;
+            visibility: visible !important;
             transition: all 0.2s ease !important;
         }
-        .stButton > button:hover {
-            background: #1e293b !important;
+        [data-testid="stFormSubmitButton"] button p,
+        [data-testid="baseButton-secondary"] p,
+        .stButton > button p {
+            color: #d9f99d !important;
+            font-weight: 700 !important;
+        }
+        [data-testid="stFormSubmitButton"] button:hover,
+        [data-testid="baseButton-secondary"]:hover,
+        .stButton > button:hover,
+        [data-testid="stFormSubmitButton"] button:active,
+        [data-testid="baseButton-secondary"]:active,
+        .stButton > button:active {
+            background: #ffffff !important;
+            background-color: #ffffff !important;
+            border-color: #cbd5e1 !important;
+            color: #0f172a !important;
             transform: translateY(-2px);
+        }
+        [data-testid="stFormSubmitButton"] button:hover p,
+        [data-testid="baseButton-secondary"]:hover p,
+        .stButton > button:hover p,
+        [data-testid="stFormSubmitButton"] button:active p,
+        [data-testid="baseButton-secondary"]:active p,
+        .stButton > button:active p {
+            color: #0f172a !important;
         }
 
         .section-title {
