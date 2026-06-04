@@ -59,7 +59,7 @@ def render_prediction(model_bundle: ModelBundle) -> None:
             if sarcasm_info["is_sarcasm"]:
                 badge_class = "badge-sarkasme"
                 label = "Sarkasme"
-                sarcasm_reason = f"<div style='margin-top: 16px; padding-top: 12px; border-top: 1px solid #1f2937; color: #c084fc; font-size: 0.85rem;'>💡 <b>Sarkasme Terdeteksi:</b> {sarcasm_info['reason']}</div>"
+                sarcasm_reason = f"<div style='margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--card-border); color: #7e22ce; font-size: 0.85rem;'>💡 <b>Sarkasme Terdeteksi:</b> {sarcasm_info['reason']}</div>"
 
             html_content = f'<div class="card" style="margin-bottom: 16px; margin-top: 16px;"><div class="section-title">Hasil Prediksi</div><div style="display:flex; align-items:center; gap:12px; margin-bottom: 16px;"><div class="badge {badge_class}">{label}</div><div class="muted">Confidence (NB) {confidence:.1f}%</div></div>{render_probability_bars(proba_dict)}{sarcasm_reason}</div>'
 
@@ -68,13 +68,13 @@ def render_prediction(model_bundle: ModelBundle) -> None:
             with st.expander("Detail preprocessing", expanded=False):
                 st.markdown(
                     textwrap.dedent(f"""
-                    <div style="background:#1e293b; padding:12px; border-radius:8px; margin-bottom:12px; border: 1px solid #334155;">
-                        <div class="muted" style="margin-bottom:4px; font-size:0.85rem;">Input asli:</div>
-                        <div style="color:#e2e8f0; font-size:0.95rem;">{user_text.strip()}</div>
+                    <div style="background:#ffffff; padding:12px; border-radius:8px; margin-bottom:12px; border: 1px solid var(--card-border);">
+                        <div style="color:var(--card-muted); margin-bottom:4px; font-size:0.85rem;">Input asli:</div>
+                        <div style="color:var(--card-text); font-size:0.95rem;">{user_text.strip()}</div>
                     </div>
-                    <div style="background:#1e293b; padding:12px; margin-bottom: 12px;border-radius:8px; border: 1px solid #334155;">
-                        <div class="muted" style="margin-bottom:4px; font-size:0.85rem;">Setelah preprocessing:</div>
-                        <div style="color:#e2e8f0; font-size:0.95rem;">{cleaned if cleaned else '(kosong)'}</div>
+                    <div style="background:#ffffff; padding:12px; margin-bottom: 12px;border-radius:8px; border: 1px solid var(--card-border);">
+                        <div style="color:var(--card-muted); margin-bottom:4px; font-size:0.85rem;">Setelah preprocessing:</div>
+                        <div style="color:var(--card-text); font-size:0.95rem;">{cleaned if cleaned else '(kosong)'}</div>
                     </div>
                     """),
                     unsafe_allow_html=True
@@ -88,7 +88,7 @@ def render_prediction(model_bundle: ModelBundle) -> None:
             textwrap.dedent("""
             <div class="card" style="height: 100%;">
                 <div class="badge badge-positif" style="margin-bottom: 8px; display: inline-block;">Positif</div>
-                <div style="color: #e2e8f0; font-size: 0.9rem;">"Cuman sayang ongkirnya mahal, tapi barangnya bagus"</div>
+                <div style="color: var(--card-text); font-size: 0.9rem;">"Cuman sayang ongkirnya mahal, tapi barangnya bagus"</div>
             </div>
             """),
             unsafe_allow_html=True,
@@ -98,7 +98,7 @@ def render_prediction(model_bundle: ModelBundle) -> None:
             textwrap.dedent("""
             <div class="card" style="height: 100%;">
                 <div class="badge badge-negatif" style="margin-bottom: 8px; display: inline-block;">Negatif</div>
-                <div style="color: #e2e8f0; font-size: 0.9rem;">"2x pesan barang lewat aplikasi ini, pesanan sy tdk 1 pun yg sampai Payah"</div>
+                <div style="color: var(--card-text); font-size: 0.9rem;">"2x pesan barang lewat aplikasi ini, pesanan sy tdk 1 pun yg sampai Payah"</div>
             </div>
             """),
             unsafe_allow_html=True,
@@ -112,7 +112,7 @@ def render_prediction(model_bundle: ModelBundle) -> None:
             textwrap.dedent("""
             <div class="card" style="height: 100%;">
                 <div class="badge badge-netral" style="margin-bottom: 8px; display: inline-block;">Netral</div>
-                <div style="color: #e2e8f0; font-size: 0.9rem;">"Biaya penanganan yg awal nya 1000 terus 2000 sekarang jadi 5500?????"</div>
+                <div style="color: var(--card-text); font-size: 0.9rem;">"Biaya penanganan yg awal nya 1000 terus 2000 sekarang jadi 5500?????"</div>
             </div>
             """),
             unsafe_allow_html=True,
@@ -122,7 +122,7 @@ def render_prediction(model_bundle: ModelBundle) -> None:
             textwrap.dedent("""
             <div class="card" style="height: 100%;">
                 <div class="badge badge-sarkasme" style="margin-bottom: 8px; display: inline-block;">Sarkasme</div>
-                <div style="color: #e2e8f0; font-size: 0.9rem;">"Wah bagus ya barangnya, sampai rusak semua pas dateng. Parah."</div>
+                <div style="color: var(--card-text); font-size: 0.9rem;">"Wah bagus ya barangnya, sampai rusak semua pas dateng. Parah."</div>
             </div>
             """),
             unsafe_allow_html=True,

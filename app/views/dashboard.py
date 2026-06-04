@@ -46,7 +46,7 @@ def _render_dataset_chart(dataset_summary: dict) -> None:
     st.plotly_chart(fig, use_container_width=True)
 
 
-def _plot_top_words(feature_names, log_probs, label_name, color):
+def _plot_top_words(feature_names, log_probs, label_name, colorscale_name):
     top_indices = np.argsort(log_probs)[-15:]
     top_words = [feature_names[i] for i in top_indices]
     top_scores = [np.exp(log_probs[i]) * 1000 for i in top_indices]
@@ -55,7 +55,11 @@ def _plot_top_words(feature_names, log_probs, label_name, color):
         x=top_scores,
         y=top_words,
         orientation='h',
-        marker_color=color
+        marker=dict(
+            color=top_scores,
+            colorscale=colorscale_name,
+            showscale=False
+        )
     ))
     fig.update_layout(
         height=350,
@@ -88,10 +92,10 @@ def _render_top_keywords(model_bundle: ModelBundle) -> None:
         tabs = st.tabs(["Top Kata Positif", "Top Kata Negatif"])
         
         with tabs[0]:
-            _plot_top_words(feature_names, clf.feature_log_prob_[2], "Positif", "#22c55e")
+            _plot_top_words(feature_names, clf.feature_log_prob_[2], "Positif", "Tealgrn")
             
         with tabs[1]:
-            _plot_top_words(feature_names, clf.feature_log_prob_[0], "Negatif", "#ef4444")
+            _plot_top_words(feature_names, clf.feature_log_prob_[0], "Negatif", "Sunsetdark")
             
     except Exception as e:
         st.warning(f"Gagal memuat top keywords: {e}")
