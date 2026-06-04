@@ -194,6 +194,7 @@ def apply_theme() -> None:
         .stTextArea textarea {
             background: #ffffff !important;
             color: var(--card-text) !important;
+            caret-color: var(--card-text) !important;
             border: 1px solid #cbd5e1 !important;
             border-radius: 12px !important;
             padding: 14px !important;
